@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- flex布局 ie10+ 开始支持 -->
+    <!-- 
+        flex就是 flexible box 意思是弹性布局
+        dispaly: flex; dispaly: inline-flex
+        设置了flex布局以后 子元素的float clear vertical-align属性都会失效
+     -->
+     <!-- 
+         flex容器默认存在两根轴 水平的主轴（main axis）和垂直都交叉轴 (cross axis)
+         主轴开始的位置 与边框的交叉点 main start
+         主轴结束的位置 与右边框的交叉点 main end
+         交叉轴开始的位置 也是与边框的交叉点 叫 cross start
+         交叉轴结束的位置 叫 corss end 
+
+         项目默认按照主轴排列
+          单项目占据主轴空间叫main size 占据交叉轴空间 叫 cross size
+      -->
+      <!-- 
+          容器属性
+            flex-direction
+                row :依据主轴排列 起点在左边 (默认)
+                row-reverse ：依据主轴排列 起点在左右
+                column: 沿交叉轴 起点上
+                column-reverse: 沿交叉 下
+            flex-warp 如果项目再一条轴线排不下了 如何换行
+                nowrap: 不换行
+                wrap: 换行 第一行在上方
+                wrap-reverse: 换行 第一行在下方
+            flex-flow: flex-direction 和 flex-warp的简写
+       -->
+       <div
+        style="
+            display: -webkit-flex;
+            display: flex;
+            width: 100px;
+            flex-direction: column;
+            flex-wrap: nowrap;
+        "
+       >
+            <div>123</div><div>234</div>
+       </div>
+       <div
+        style="
+            display: -webkit-flex;
+            display: flex;
+            width: 100px;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+        "
+       >
+            <div>123</div><div>234</div>
+       </div>
+       <div style="
+            display: flex;
+            flex-flow: row nowrap;
+       ">
+            <div>123</div>
+            <div>123</div>
+        </div>
+    <!-- 
+        justify-content 设置项目在主轴的对齐方式
+            flex-start 项目以主轴左侧对齐
+            flex-end 项目以主轴右侧对齐
+            center 项目以主轴中心对齐
+            space-between   项目两端对齐 项目之间的间隔相等
+            space-around    项目两端对齐 每个项目两侧的间隔相等
+     -->
+     <div 
+        style="
+        display: flex;
+        padding: 5px;
+        height: 150px;
+        background: pink;
+        /* 默认 */
+        /* flex-flow: row nowrap;     */
+        justify-content: space-around;
+        align-items: flex-end;
+        "
+     >
+        <div style="width:100px;height:100px;background:red"></div>
+        <div style="width:100px;height: 50px;background:red"></div>
+        <div style="width:100px;height:100px;background:red"></div>
+    </div>
+    <!-- 
+        align-items 用于设置在交叉轴上的对齐方式
+            stretch 如果项目没有设置高度或者设置的高度上auto 将占满整个容器的高度
+            flex-start  项目以交叉轴起点对齐
+            flex-end    以项目交叉轴的终点对齐
+            center  以交叉轴的终点进行对齐
+            baseline    以第一行文字的基线对齐
+     -->
+     <div 
+        style="
+        height: 50px;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            /* flex-flow: row nowrap; */
+            justify-content: flex-end;
+            align-items: baseline;
+            width: 300px;
+            background: red;
+        "
+     >  
+        <div 
+            style="
+                margin-left: 20px;
+                height: 20px;
+                line-height: 30px;
+                background: pink;
+            "
+        >1234</div>
+        <div 
+            style="
+                margin-left: 20px;
+                height: 20px;
+                background: pink;
+            "
+        >1234</div>
+        <div 
+            style="
+                margin-left: 20px;
+                height: 20px;
+                background: pink;
+            "
+        >1234</div>
+    </div>
+    <!-- 
+        align-content   用于设置多根轴线的对齐方式
+
+     -->
+</body>
+</html>

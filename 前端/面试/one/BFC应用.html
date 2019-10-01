@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .aisde{
+            width: 100px;
+            height: 150px;
+            float: left;
+            background: red;
+        }
+
+        .main{
+            height: 200px;
+            background: pink;
+            overflow: hidden;
+            margin-bottom: 100px;
+        }
+
+        .aisde-2{
+            width: 100px;
+            height: 150px;
+            float: right;
+            background: red;
+        }
+
+        .big{
+            width: 500px;
+            border: 20px solid red;
+            overflow: hidden;
+        }
+
+        .big .small{
+            float: left;
+            border: 20px solid pink;
+            width: 100px;
+            height: 100px;
+        }
+
+        .m{
+            background: pink;
+            height: 100px;
+            width: 100px;
+            margin: 20px;
+        }
+
+        .m-bg{
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="aisde"></div>
+    <div class="aisde-2"></div>
+    <div class="main"></div>
+    <div class="big">
+        <div class="small"></div>
+        <div class="small"></div>
+    </div>
+    <div class="m-bg">
+            <div class="m"></div>
+    </div>
+    
+    <div class="m"></div>
+</body>
+</html>

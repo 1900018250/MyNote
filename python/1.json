@@ -1,0 +1,81 @@
+{
+	'all_rank_list': [
+    {
+		'msg_code': 1,
+		'goods_id': 44263465270,
+		'jd_rank': 1,
+		'goods_info': {
+			'goods_id': '44263465270',
+			'goods_name': '姿尼卡 玻尿酸原液精华液套装 六胜肽安瓶抗纹皱 高浓度保湿深层补水 男女通用 30ML原液一瓶',
+			'price': '49.90',
+			'loop_img_url': 'http://img10.360buyimg.com/n7/jfs/t1/33987/29/130/74419/5c9c8589E2871bf56/b8f13e79c380ea4e.jpg'
+		}
+    }, 
+    {
+		'msg_code': 1,
+		'goods_id': 44300965169,
+		'jd_rank': 13,
+		'goods_info': {
+			'goods_id': '44300965169',
+			'goods_name': '姿尼卡 遮瑕bb霜化妆品遮瑕膏防隔离晒美BB霜素颜霜防水粉底液滋润保湿 BB霜象牙白色',
+			'price': '59.90',
+			'loop_img_url': 'http://img14.360buyimg.com/n7/jfs/t1/28324/12/13140/49221/5c9ddb92Ea98d402d/c9491199ba448037.jpg'
+		}
+    }, 
+    {
+		'msg_code': 1,
+		'goods_id': 44263465272,
+		'jd_rank': 19,
+		'goods_info': {
+			'goods_id': '44263465272',
+			'goods_name': '姿尼卡 玻尿酸原液精华液套装 六胜肽安瓶抗纹皱 高浓度保湿深层补水 男女通用 30ML原液三瓶',
+			'price': '139.90',
+			'loop_img_url': 'http://img12.360buyimg.com/n7/jfs/t1/28794/12/12707/97169/5c9d7392Eaa456d14/95d538d8027ed00e.jpg'
+		}
+    }],
+    
+	'page_rank_list': [
+    {
+		'msg_code': 1,
+		'goods_id': 44263465270,
+		'jd_rank': 1,
+		'page_num': 1,
+		'goods_info': {
+			'goods_id': '44263465270',
+			'goods_name': '姿尼卡 玻尿酸原液精华液套装 六胜肽安瓶抗纹皱 高浓度保湿深层补水 男女通用 30ML原液一瓶',
+			'price': '49.90',
+			'loop_img_url': 'http://img10.360buyimg.com/n7/jfs/t1/33987/29/130/74419/5c9c8589E2871bf56/b8f13e79c380ea4e.jpg'
+		}
+    }, 
+    {
+		'msg_code': 1,
+		'goods_id': 44300965169,
+		'jd_rank': 13,
+		'page_num': 1,
+		'goods_info': {
+			'goods_id': '44300965169',
+			'goods_name': '姿尼卡 遮瑕bb霜化妆品遮瑕膏防隔离晒美BB霜素颜霜防水粉底液滋润保湿 BB霜象牙白色',
+			'price': '59.90',
+			'loop_img_url': 'http://img14.360buyimg.com/n7/jfs/t1/28324/12/13140/49221/5c9ddb92Ea98d402d/c9491199ba448037.jpg'
+		}
+    }, 
+    {
+		'msg_code': 1,
+		'goods_id': 44263465272,
+		'jd_rank': 19,
+		'page_num': 1,
+		'goods_info': {
+			'goods_id': '44263465272',
+			'goods_name': '姿尼卡 玻尿酸原液精华液套装 六胜肽安瓶抗纹皱 高浓度保湿深层补水 男女通用 30ML原液三瓶',
+			'price': '139.90',
+			'loop_img_url': 'http://img12.360buyimg.com/n7/jfs/t1/28794/12/12707/97169/5c9d7392Eaa456d14/95d538d8027ed00e.jpg'
+		}
+	}],
+	'process': 100,
+	'source': 'web'
+}
+
+sku = goods_id
+keyword = keyword_id
+web_rank = all_rank_list.jd_rank
+web_page

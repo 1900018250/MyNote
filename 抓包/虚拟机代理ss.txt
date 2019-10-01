@@ -1,0 +1,13 @@
+在 http://www.privoxy.org/#DOWNLOAD 下载安装
+修改 /usr/local/etc/privoxy/config
+搜索到“forward-socks5t   /”（不含双引号）那一行，去掉注释的符号，把端口改为1080（系SS的SOCKS5端口） SOCKS5端口
+forward-socks5t   /               127.0.0.1:1080 .
+搜索到“listen-address  127.0.0.1:8118”（不含双引号）那一行，去掉注释的符号，把127.0.0.1改为0.0.0.0（否则只能作用于本机），端口号默认或选择一个未占用的端口
+listen-address  0.0.0.0:1992
+
+
+在终端中运行
+cd /usr/local/sbin/
+./privoxy --no-daemon /usr/local/etc/privoxy/config
+
+虚拟中中代理 192.168.x.x 1992
