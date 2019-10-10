@@ -1,0 +1,15 @@
+﻿#p::   ;; !->alt键   k->字母键k
+Send {Up}   ;;输入 上 键
+return
+
+#n::
+Send {Down}
+return
+
+#b::
+Send {Left}
+return
+
+#f::
+Send {Right}
+return
