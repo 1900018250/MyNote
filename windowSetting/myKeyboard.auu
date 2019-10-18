@@ -13,3 +13,7 @@ return
 #f::
 Send {Right}
 return
+
+#h::
+send {Backspace}
+return

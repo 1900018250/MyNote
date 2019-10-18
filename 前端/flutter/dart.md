@@ -78,7 +78,7 @@ List l6 = ['a', 'c', 'd'];
 // .remove(var) //删除第一次找到的坐标
 l6.remove('c');
 print(l6);
-// .removeAt(index)
+// .removeA(index)
 // .removeLast()  // 删除最后一个
 // .clear() 
 
