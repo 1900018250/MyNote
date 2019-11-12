@@ -317,9 +317,145 @@ State 的生命周期
 
 ### widget树中获取State对象
 
+### 文本字体样式
+
+#### Text
+
+```dart
+Text("Hello world "*6,  //字符串重复六次
+  textAlign: TextAlign.center,
+)；
+```
+
+`textAlign`：文本的对齐方式
+
+`maxLines`、`overflow`：指定文本显示的最大行数
+
+`textScaleFactor`：代表文本相对于当前字体大小的缩放因子
+
+#### TextStyle
+
+```dart
+Text("Hello world",
+  style: TextStyle(
+    color: Colors.blue,
+    fontSize: 18.0,
+    height: 1.2,  
+    fontFamily: "Courier",
+    background: new Paint()..color=Colors.yellow,
+    decoration:TextDecoration.underline,
+    decorationStyle: TextDecorationStyle.dashed
+  ),
+);
+```
+
+####  TextSpan
+
+为一行文字指定不同样式
+
+```dart
+Text.rich(TextSpan(
+    children: [
+     TextSpan(
+       text: "Home: "
+     ),
+     TextSpan(
+       text: "https://flutterchina.club",
+       style: TextStyle(
+         color: Colors.blue
+       ),  
+       recognizer: _tapRecognizer
+     ),
+    ]
+))
+```
+
+####DefaultTextStyle
+
+在Widget树中，文本的样式默认是可以被继承的
+
+```dart
+DefaultTextStyle(
+  //1.设置文本默认样式  
+  style: TextStyle(
+    color:Colors.red,
+    fontSize: 20.0,
+  ),
+  textAlign: TextAlign.start,
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: <Widget>[
+      Text("hello world"),
+      Text("I am Jack"),
+      Text("I am Jack",
+        style: TextStyle(
+          inherit: false, //2.不继承默认样式
+          color: Colors.grey
+        ),
+      ),
+    ],
+  ),
+);
+```
+
+### 布局
+
+#### 线性布局
+
+#### ROW
+
+Row可以在水平方向排列其子widget。定义如下：
+
+```dart
+Row({
+  ...  
+  TextDirection textDirection,    
+  MainAxisSize mainAxisSize = MainAxisSize.max,    
+  MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
+  VerticalDirection verticalDirection = VerticalDirection.down,  
+  CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
+  List<Widget> children = const <Widget>[],
+})
+```
+
+- `textDirection`：表示水平方向子组件的布局顺序(是从左往右还是从右往左)，默认为系统当前Locale环境的文本方向(如中文、英语都是从左往右，而阿拉伯语是从右往左)。
+- `mainAxisSize`：表示`Row`在主轴(水平)方向占用的空间，默认是`MainAxisSize.max`，表示尽可能多的占用水平方向的空间，此时无论子widgets实际占用多少水平空间，`Row`的宽度始终等于水平方向的最大宽度；而`MainAxisSize.min`表示尽可能少的占用水平空间，当子组件没有占满水平剩余空间，则`Row`的实际宽度等于所有子组件占用的的水平空间；
+- `mainAxisAlignment`：表示子组件在`Row`所占用的水平空间内对齐方式，如果`mainAxisSize`值为`MainAxisSize.min`，则此属性无意义，因为子组件的宽度等于`Row`的宽度。只有当`mainAxisSize`的值为`MainAxisSize.max`时，此属性才有意义，`MainAxisAlignment.start`表示沿`textDirection`的初始方向对齐，如`textDirection`取值为`TextDirection.ltr`时，则`MainAxisAlignment.start`表示左对齐，`textDirection`取值为`TextDirection.rtl`时表示从右对齐。而`MainAxisAlignment.end`和`MainAxisAlignment.start`正好相反；`MainAxisAlignment.center`表示居中对齐。读者可以这么理解：`textDirection`是`mainAxisAlignment`的参考系。
+- `verticalDirection`：表示`Row`纵轴（垂直）的对齐方向，默认是`VerticalDirection.down`，表示从上到下。
+- `crossAxisAlignment`：表示子组件在纵轴方向的对齐方式，`Row`的高度等于子组件中最高的子元素高度，它的取值和`MainAxisAlignment`一样(包含`start`、`end`、 `center`三个值)，不同的是`crossAxisAlignment`的参考系是`verticalDirection`，即`verticalDirection`值为`VerticalDirection.down`时`crossAxisAlignment.start`指顶部对齐，`verticalDirection`值为`VerticalDirection.up`时，`crossAxisAlignment.start`指底部对齐；而`crossAxisAlignment.end`和`crossAxisAlignment.start`正好相反；
+- `children` ：子组件数组
+#### Column
 
 
 
+## 容器类组件
+
+### Padding
+
+```dart
+Padding({
+  ...
+  EdgeInsetsGeometry padding,
+  Widget child,
+})
+```
+
+### EdgeInsets
+
+我们看看`EdgeInsets`提供的便捷方法：
+
+- `fromLTRB(double left, double top, double right, double bottom)`：分别指定四个方向的填充。
+- `all(double value)` : 所有方向均使用相同数值的填充。
+- `only({left, top, right ,bottom })`：可以设置具体某个方向的填充(可以同时指定多个方向)。
+- `symmetric({ vertical, horizontal })`：用于设置对称方向的填充，`vertical`指`top`和`bottom`，`horizontal`指`left`和`right`。
+
+
+
+### 尺寸限制类容器
+
+#### ConstrainedBox
+
+## 可以滚动的组件
 
 
 
