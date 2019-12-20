@@ -342,3 +342,73 @@ const app = await NestFactory.create(AppModule);
 app.use(logger);
 await app.listen(3000);
 ```
+
+## 异常过滤器
+
+内置的**异常层**负责处理整个应用程序中的所有抛出的异常。当捕获到未处理的异常时，最终用户将收到友好的响应。![Filter_1](C:\Users\FX_XXXXX\Desktop\MyNote\nest\Filter_1.png)
+
+```typescript
+@Get()
+async findAll() {
+  throw new HttpException({
+    status: HttpStatus.FORBIDDEN,
+    error: 'This is a custom message',
+  }, 200);
+}
+```
+
+### 异常过滤器
+
+http-exception.filter.ts
+
+```typescript
+import { ExceptionFilter, Catch, ArgumentsHost, HttpException } from '@nestjs/common';
+import { Request, Response } from 'express';
+
+@Catch(HttpException)
+export class HttpExceptionFilter implements ExceptionFilter {
+    // exception 正在处理的异常对象
+    // host 是传递给原始处理程序的参数的一个包装它的主要目的是为我们提供一个 Request 和 Response 对象的引用
+  catch(exception: HttpException, host: ArgumentsHost) {
+    const ctx = host.switchToHttp();
+    const response = ctx.getResponse<Response>();
+    const request = ctx.getRequest<Request>();
+    const status = exception.getStatus();
+
+    response
+      .status(status)
+      .json({
+        statusCode: status,
+        timestamp: new Date().toISOString(),
+        path: request.url,
+      });
+  }
+}
+
+// 使用
+@Get('e2')
+@UseFilters(new HttpExceptionFilter())
+b(): any {
+    throw new ForbiddenException();
+}
+
+// 
+@UseFilters(new HttpExceptionFilter())
+export class CatsController {}
+//
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.useGlobalFilters(new HttpExceptionFilter());
+  await app.listen(3000);
+}
+bootstrap();
+```
+
+`@Catch()` 装饰器绑定所需的元数据到异常过滤器上。它告诉 `Nest`这个特定的过滤器正在寻找 `HttpException` 而不是其他的
+
+
+
+## 管道
+
+
+
