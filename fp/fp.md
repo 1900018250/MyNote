@@ -61,6 +61,7 @@ export default () => {
 只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数
 curry 函数所做的正是这样：每传递一个参数调用函数，就返回一个新函数处理剩余的参数。这就是一个输入对应一个输出啊。
 Functionにちょうとのparmを送って呼び出し、
+即策略性地把要操作的数据（String， Array）放到最后一个参数里。到使用它们的时候你就明白这样做的原因是什么了。
 ```typescript
 import { curry } from 'lodash'
 
@@ -75,4 +76,15 @@ export default () => {
   console.log(findSpaces(["tori_spelling", "tori amos"]))  // ["tori amos"]
 }
 ```
+
+# compose
+
+# 命令式
+```typescript
+// map 的组合律
+var law = compose(map(f), map(g)) == map(compose(f, g));
+```
+
+# 类型签名
+
 
